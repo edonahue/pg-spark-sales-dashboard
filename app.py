@@ -17,7 +17,7 @@ scope = ['https://spreadsheets.google.com/feeds',
 creds = os.getenv('GOOGLE_SHEETS_CREDS_JSON')
 print(creds)
 with open('gcreds.json', 'w') as fp:
-    json.dump(creds, fp)
+    json.dump(json.loads(creds.replace('\n','')), fp)
 credentials = ServiceAccountCredentials.from_json_keyfile_dict('gcreds.json', scope)
 gc = gspread.authorize(credentials)
 
