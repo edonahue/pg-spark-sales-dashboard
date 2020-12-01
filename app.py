@@ -15,12 +15,10 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
 # use creds to create a client to interact with the Google Drive API
-creds = json.loads(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS'))
-
-with open('gcreds.json', 'w') as fp:
-    json.dump(creds, fp)
-credentials = ServiceAccountCredentials.from_json_keyfile_name('gcreds.json', scope)
-
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+credentials = ServiceAccountCredentials.from_json_keyfile_name(
+    'google-credentials.json', scope)
 gc = gspread.authorize(credentials)
 
 spreadsheet_key = '1QJ1Kn2j2WpLZbKnci6pyz_XpV7ULCs8qV3mA3cfV1gg'
