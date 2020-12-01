@@ -52,7 +52,7 @@ app.layout = html.Div([
     [Input("y-axis", "value")])
 def display_area(y):
     fig = px.area(
-        gtotals_daily, x="date", y=y
+        gtotals_daily, x="date", y=y, title="Positive Grid Spark daily Sales"
     )
     return fig
 
