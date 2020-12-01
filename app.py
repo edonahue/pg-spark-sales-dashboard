@@ -20,8 +20,8 @@ json_creds = os.getenv("GOOGLE_SHEETS_CREDS_JSON")
 
 creds_dict = json.loads(json_creds)
 creds_dict["private_key"] = creds_dict["private_key"].replace("\\\\n", "\n")
-creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scopes)
-gc = gspread.authorize(creds)
+credentials = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scopes)
+gc = gspread.authorize(credentials)
 
 spreadsheet_key = '1QJ1Kn2j2WpLZbKnci6pyz_XpV7ULCs8qV3mA3cfV1gg'
 
