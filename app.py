@@ -11,9 +11,16 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
-credentials = ServiceAccountCredentials.from_json_keyfile_name(
-    '/home/erich/client_secret.json', scope)
-gc = gspread.authorize(credentials)
+
+# use creds to create a client to interact with the Google Drive API
+scopes = ['https://spreadsheets.google.com/feeds&#39;']
+json_creds = os.getenv("GOOGLE_SHEETS_CREDS_JSON")
+
+creds_dict = json.loads(json_creds)
+creds_dict["private_key"] = creds_dict["private_key"].replace("\\\\n", "\n")
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scopes)
+gc = gspread.authorize(creds)
+
 spreadsheet_key = '1QJ1Kn2j2WpLZbKnci6pyz_XpV7ULCs8qV3mA3cfV1gg'
 
 wks_name = 'sales_totals'
