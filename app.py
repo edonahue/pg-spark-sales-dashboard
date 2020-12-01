@@ -11,14 +11,11 @@ from df2gspread import df2gspread as d2g
 from df2gspread import gspread2df as g2d
 from oauth2client.service_account import ServiceAccountCredentials
 
-scope = ['https://spreadsheets.google.com/feeds',
-         'https://www.googleapis.com/auth/drive']
-
 # use creds to create a client to interact with the Google Drive API
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
-    'google-credentials.json', scope)
+    '/app/google-credentials.json', scope)
 gc = gspread.authorize(credentials)
 
 spreadsheet_key = '1QJ1Kn2j2WpLZbKnci6pyz_XpV7ULCs8qV3mA3cfV1gg'
