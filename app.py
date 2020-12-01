@@ -18,9 +18,11 @@ scope = ['https://spreadsheets.google.com/feeds',
 scopes = ['https://spreadsheets.google.com/feeds&#39;']
 json_creds = os.getenv("GOOGLE_SHEETS_CREDS_JSON")
 
-creds_dict = json.loads(json_creds)
-creds_dict["private_key"] = creds_dict["private_key"].replace("\\\\n", "\n")
-credentials = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scopes)
+creds = json.loads(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS'))
+with open('gcreds.json', 'w') as fp:
+    json.dump(creds, fp)
+credentials = ServiceAccountCredentials.from_json_keyfile_name('gcreds.json', scope)
+
 gc = gspread.authorize(credentials)
 
 spreadsheet_key = '1QJ1Kn2j2WpLZbKnci6pyz_XpV7ULCs8qV3mA3cfV1gg'
