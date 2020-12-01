@@ -31,7 +31,7 @@ gtotals['left'] = gtotals.left.astype(int)
 gtotals['sales_revenue'] = gtotals.sales_revenue.astype(int)
 # gtotals.head()
 
-gtotals_daily = gtotals[['date', 'total', 'sold', 'left', 'sales_revenue']].groupby('date').sum().reset_index()
+gtotals_daily = gtotals[['date', 'total', 'sold', 'left', 'sales_revenue']].groupby('date').max().reset_index()
 
 app = dash.Dash(__name__)
 server = app.server
