@@ -18,7 +18,7 @@ creds = os.getenv('GOOGLE_SHEETS_CREDS_JSON')
 print(creds)
 #with open('gcreds.json', 'w') as fp:
 #    json.dump(json.loads(creds.replace('\n','')), fp)
-credentials = ServiceAccountCredentials.from_json(json.loads(creds.replace('\n','')), scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(creds.replace('\n','')), scope)
 gc = gspread.authorize(credentials)
 
 spreadsheet_key = '1QJ1Kn2j2WpLZbKnci6pyz_XpV7ULCs8qV3mA3cfV1gg'
