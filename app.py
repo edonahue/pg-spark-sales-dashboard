@@ -25,10 +25,10 @@ spreadsheet_key = '1QJ1Kn2j2WpLZbKnci6pyz_XpV7ULCs8qV3mA3cfV1gg'
 
 wks_name = 'sales_totals'
 gtotals = g2d.download(gfile=spreadsheet_key, wks_name=wks_name, credentials=credentials, col_names=True)
-gtotals['total'] = gtotals.total.astype(int64)
-gtotals['sold'] = gtotals.sold.astype(int64)
-gtotals['left'] = gtotals.left.astype(int64)
-gtotals['sales_revenue'] = gtotals.sales_revenue.astype(int64)
+gtotals['total'] = gtotals.total.astype(float)
+gtotals['sold'] = gtotals.sold.astype(float)
+gtotals['left'] = gtotals.left.astype(float)
+gtotals['sales_revenue'] = gtotals.sales_revenue.astype(float)
 # gtotals.head()
 
 gtotals_daily = gtotals[['date', 'total', 'sold', 'left', 'sales_revenue']].groupby('date').max().reset_index()
