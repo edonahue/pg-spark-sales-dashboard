@@ -40,7 +40,7 @@ app.layout = html.Div([
     dcc.Dropdown(
         id='y-axis',
         options=[
-            {'label': x, 'value': x} 
+            {'label': x.title(), 'value': x} 
             for x in ['total', 'sales_revenue']],
         value='total'
     ),
