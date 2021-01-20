@@ -42,7 +42,8 @@ app.layout = html.Div([
         options=[
             {'label': x.title(), 'value': x} 
             for x in ['total', 'sales_revenue']],
-        value='total'
+        value='total',
+        type='buttons'
     ),
     dcc.Graph(id="graph"),
 ])
