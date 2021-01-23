@@ -35,7 +35,11 @@ gtotals_daily = gtotals[['date', 'total', 'sold', 'left', 'sales_revenue']].grou
 
 app = dash.Dash(__name__)
 server = app.server
-app.layout = html.Div([
+app.layout = html.Div(children=[
+    html.H1(children='Positive Grid Spark Amplifier Sales Metrics'),
+    html.Div(children='''
+        Dashboard of sales volume and revenue metrics for the <a href="https://www.positivegrid.com/spark/">Positive Grid Spark amplifier</a> based on <a href="https://api.positivegrid.com/api/counter/spark_preorder_2019">public API response data</a>.
+    '''),
     html.P("Select y-axis"),
     dcc.Dropdown(
         id='y-axis',
