@@ -38,7 +38,7 @@ server = app.server
 app.layout = html.Div(children=[
     html.H1(children='Positive Grid Spark Amplifier Sales Metrics'),
     html.Div([html.P(["Dashboard of sales volume and revenue metrics for the ", html.A("Positive Grid Spark amplifier", href="https://www.positivegrid.com/spark/"), 'based on ', html.A("public API response data.", href="https://api.positivegrid.com/api/counter/spark_preorder_2019")]
-    '''])]),
+    )]),
     html.P("Select y-axis"),
     dcc.Dropdown(
         id='y-axis',
