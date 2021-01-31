@@ -40,7 +40,7 @@ app.layout = html.Div(children=[
     html.Div(children=[html.P(["Dashboard of sales volume and revenue metrics for the ", 
         html.A("Positive Grid Spark amplifier", href="https://www.positivegrid.com/spark/"), ' based on ', 
         html.A("public API response data.", href="https://api.positivegrid.com/api/counter/spark_preorder_2019"),
-        html.Br()]
+        html.Br(), html.Br()]
     )]),
     html.P("Select y-axis"),
     dcc.Dropdown(
